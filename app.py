@@ -35,7 +35,7 @@ def record(id):
     _account = Account.query.filter_by(id=id).first()
 
     if not _account:
-        return jsonify({'codigo': 404, 'mensaje': 'Usuario no existente'})
+        return jsonify({'codigo': 400, 'mensaje': 'El id de usuario no existe'})
 
     _account.last_read = datetime.datetime.now()
     db.session.commit()
